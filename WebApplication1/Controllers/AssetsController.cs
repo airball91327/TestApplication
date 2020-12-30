@@ -106,8 +106,8 @@ namespace WebApplication1.Controllers
             qryAsset.QryType = fm["QryType"];
 
             TempData["qry"] = qryAsset;
-            ViewData["CountAsset"] = db.Assets.ToList().Count();
-            ViewData["CountDpt"] = db.Departments.ToList().Count();
+            ViewData["CountAsset"] = db.Assets.Count();
+            ViewData["CountDpt"] = db.Departments.Count();
             List<Asset> at = new List<Asset>();
             switch (qryAsset.QryType)
             {
@@ -203,21 +203,21 @@ namespace WebApplication1.Controllers
                     {
                         qAsset2 = qAsset2.Where(a => a.RiskLvl == qryAsset.RiskLvl);
                     }
+                    var result = qAsset2.GroupJoin(db.Departments, a => a.DelivDpt, d => d.DptId,
+                                        (a, d) => new { Asset = a, Department = d })
+                                        .SelectMany(p => p.Department.DefaultIfEmpty(),
+                                        (x, y) => new { Asset = x.Asset, Department = y })
+                                        .GroupJoin(db.Departments, a => a.Asset.AccDpt, d => d.DptId,
+                                        (a, d) => new { Asset = a.Asset, DelivDpt = a.Department, AccDpt = d })
+                                        .SelectMany(p => p.AccDpt.DefaultIfEmpty(),
+                                        (x, y) => new { Asset = x.Asset, DelivDpt = x.DelivDpt, AccDpt = y });
                     timer2.Stop();
                     TimeSpan timespan2 = timer2.Elapsed;
                     //
                     Stopwatch timer5 = Stopwatch.StartNew();
                     try
                     {
-                        qAsset2.GroupJoin(db.Departments, a => a.DelivDpt, d => d.DptId,
-                       (a, d) => new { Asset = a, Department = d })
-                       .SelectMany(p => p.Department.DefaultIfEmpty(),
-                       (x, y) => new { Asset = x.Asset, Department = y })
-                       .GroupJoin(db.Departments, a => a.Asset.AccDpt, d => d.DptId,
-                            (a, d) => new { Asset = a.Asset, DelivDpt = a.Department, AccDpt = d })
-                            .SelectMany(p => p.AccDpt.DefaultIfEmpty(),
-                            (x, y) => new { Asset = x.Asset, DelivDpt = x.DelivDpt, AccDpt = y })
-                            .ToList()
+                        result.ToList()
                        .ForEach(p =>
                        {
                            p.Asset.DelivDptName = p.DelivDpt == null ? "" : p.DelivDpt.Name_C;
