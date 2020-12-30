@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 測試環境</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+
+    <style>
+        .setHeaderStyle {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .navbar-layout-content {
+            font-size: 15px;
+        }
+
+        .layout-dropdown-menu > a:hover,
+        .layout-dropdown-menu > a:focus {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerMain01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @Html.ActionLink("測試環境", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse" id="navbarTogglerMain01">
+                <ul class="nav navbar-nav navbar-layout-content mr-auto">
+                    <li class="nav-item">@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            功能測試
+                        </a>
+                        <div class="dropdown-menu layout-dropdown-menu">
+                            @Html.ActionLink("設備查詢速度測試", "Index", "Assets", new { area = "" }, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+                </ul>
+                <div class="mr-sm-2">@Html.Partial("_LoginPartial")</div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="margin-top:1.2em">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.UtcNow.AddHours(08) - 測試環境</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("200");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("200");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+</body>
+</html>

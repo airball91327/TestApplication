@@ -1,0 +1,249 @@
+﻿@model IEnumerable<WebApplication1.Models.Asset>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BmedNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cname2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Standard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Origin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voltage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Current)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VendorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisposeKind)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelivDpt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelivUid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelivEmp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EngId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveSite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccDpt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shares)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RiskLvl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UseLife)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IpAddr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MacAddr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakeNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WartySt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WartyEd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Docid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResponsDpt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rtp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rtt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BmedNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cname2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuyDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Standard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Origin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voltage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VendorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DisposeKind)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelivDpt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelivUid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelivEmp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EngId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccDpt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shares)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RiskLvl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UseLife)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IpAddr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MacAddr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakeNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WartySt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WartyEd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Docid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResponsDpt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rtp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rtt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AssetNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AssetNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AssetNo })
+        </td>
+    </tr>
+}
+
+</table>
